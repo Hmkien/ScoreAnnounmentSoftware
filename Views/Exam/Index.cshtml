@@ -1,0 +1,95 @@
+@model ScoreAnnouncementSoftware.Models.ViewModels.ExamViewModel;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#createModal">Create New</button>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Exams.First().ExamCode)</th>
+            <th>@Html.DisplayNameFor(model => model.Exams.First().ExamName)</th>
+            <th>@Html.DisplayNameFor(model => model.Exams.First().CreateDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Exams.First().CreatePerson)</th>
+            <th>@Html.DisplayNameFor(model => model.Exams.First().Note)</th>
+            <th>@Html.DisplayNameFor(model => model.Exams.First().Status)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Exams)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ExamCode)</td>
+                <td>@Html.DisplayFor(modelItem => item.ExamName)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreateDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatePerson)</td>
+                <td>@Html.DisplayFor(modelItem => item.Note)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Hành động
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ExamId">Sửa</a>
+                            <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.ExamId">Xóa</a>
+                            <a class="dropdown-item" asp-action="Upload" asp-route-id="@item.ExamId">Upload</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="alertMessage" class="alert alert-light text-center  " style="display: none;"></div>
+
+<div class="modal fade mt-3" id="createModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tạo mới kỳ thi</h5>
+                <button type="button" class="close " style="border: none;background-color: #fff;font-size: 1.3em;"
+                    data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="NewExam.ExamCode" class="control-label"></label>
+                        <input asp-for="NewExam.ExamCode" class="form-control" />
+                        <span asp-validation-for="NewExam.ExamCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NewExam.ExamName" class="control-label"></label>
+                        <input asp-for="NewExam.ExamName" class="form-control" />
+                        <span asp-validation-for="NewExam.ExamName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NewExam.CreatePerson" class="control-label"></label>
+                        <input asp-for="NewExam.CreatePerson" class="form-control" />
+                        <span asp-validation-for="NewExam.CreatePerson" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NewExam.Note" class="control-label"></label>
+                        <input asp-for="NewExam.Note" class="form-control" />
+                        <span asp-validation-for="NewExam.Note" class="text-danger"></span>
+                    </div>
+                    <div class="form-group d-flex gap-5 mt-3">
+                        <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
