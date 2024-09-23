@@ -22,11 +22,11 @@ body {
 }
 #alertMessage {
   position: absolute;
-  top: 20px; 
-  right: 20px; 
   z-index: 1050; 
-  display: none; 
-right: 40%;
+  display: none;
+  top:20%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
 background-color:lightcoral;
 color:#fff;
 }

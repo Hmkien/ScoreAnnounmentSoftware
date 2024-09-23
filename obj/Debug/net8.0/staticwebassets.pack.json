@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ScoreAnnouncementSoftware.bundle.scp.css"
     },
     {
+      "Id": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\Image\\logo.png",
+      "PackagePath": "staticwebassets\\Image\\logo.png"
+    },
+    {
       "Id": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-grid.css"
     },

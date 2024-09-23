@@ -18,6 +18,8 @@ namespace ScoreAnnouncementSoftware.Models.Entities
 
         [Display(Name = "Ghi chú")]
         public string Note { get; set; }
+        [ForeignKey("ExamId")]
+        public int ExamId { get; set; }
 
         [ForeignKey("Student")]
         public string StudentCode { get; set; }

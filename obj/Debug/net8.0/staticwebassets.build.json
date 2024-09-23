@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FHnhZvFCPF/MBOzZ8ulOYtP4o1XfCMbyBu6gZf52Wso=",
+  "Hash": "bkCSwe/BYlTELbsWx6vgbUHZipUFgLMYorY69zEGDm4=",
   "Source": "ScoreAnnouncementSoftware",
   "BasePath": "_content/ScoreAnnouncementSoftware",
   "Mode": "Default",
@@ -319,6 +319,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\Image\\logo.png",
+      "SourceId": "ScoreAnnouncementSoftware",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\",
+      "BasePath": "_content/ScoreAnnouncementSoftware",
+      "RelativePath": "Image/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\logo.png"
     },
     {
       "Identity": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\js\\bootstrap.bundle.js",

@@ -11,7 +11,7 @@ using ScoreAnnouncementSoftware.Data;
 namespace ScoreAnnouncementSoftware.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240923081048_InitialData")]
+    [Migration("20240923120711_InitialData")]
     partial class InitialData
     {
         /// <inheritdoc />
@@ -260,6 +260,9 @@ namespace ScoreAnnouncementSoftware.Migrations
                     b.Property<Guid>("StudentExamId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("ExamId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("IdentificationNumber")
                         .IsRequired()

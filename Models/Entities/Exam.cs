@@ -17,9 +17,9 @@ namespace ScoreAnnouncementSoftware.Models.Entities
         public string CreatePerson { get; set; } = "Admin";
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
-        public bool? IsDelete { get; set; }
+        public bool? IsDelete { get; set; } = false;
         [Display(Name = "Trạng thái")]
-        public string? Status { get; set; }
+        public string? Status { get; set; } = "Đang diễn ra";
 
     }
 }

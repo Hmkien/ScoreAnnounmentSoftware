@@ -133,6 +133,7 @@ namespace ScoreAnnouncementSoftware.Migrations
                     IdentificationNumber = table.Column<string>(type: "TEXT", nullable: false),
                     IsActive = table.Column<bool>(type: "INTEGER", nullable: false),
                     Note = table.Column<string>(type: "TEXT", nullable: false),
+                    ExamId = table.Column<int>(type: "INTEGER", nullable: false),
                     StudentCode = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>

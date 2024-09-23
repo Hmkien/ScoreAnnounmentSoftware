@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ScoreAnnouncementSoftware.Data;
 using ScoreAnnouncementSoftware.Models.Entities;
+using ScoreAnnouncementSoftware.Models.Process;
 using ScoreAnnouncementSoftware.Models.ViewModels;
 
 namespace ScoreAnnouncementSoftware.Controllers
@@ -14,6 +15,7 @@ namespace ScoreAnnouncementSoftware.Controllers
     public class ExamController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private ExcelProcess _excelProcess = new ExcelProcess();
 
         public ExamController(ApplicationDbContext context)
         {
@@ -25,7 +27,7 @@ namespace ScoreAnnouncementSoftware.Controllers
         {
             var model = new ExamViewModel
             {
-                Exams = _context.Exam.ToList(),
+                Exams = _context.Exam.Where(e => e.IsDelete == false).ToList(),
                 NewExam = new Exam()
             };
 
@@ -125,9 +127,13 @@ namespace ScoreAnnouncementSoftware.Controllers
             var exam = await _context.Exam.FindAsync(id);
             if (exam != null)
             {
-                _context.Exam.Remove(exam);
+                exam.IsDelete = true;
+                TempData["Result"] = "Đã xóa thành công!!";
             }
-
+            else
+            {
+                TempData["Result"] = "Không tìm thấy bản ghi cần xóa,Vui lòng thử lại!!";
+            }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -136,5 +142,39 @@ namespace ScoreAnnouncementSoftware.Controllers
         {
             return _context.Exam.Any(e => e.ExamId == id);
         }
+        public async Task<IActionResult> Config(int id)
+        {
+            var model = await _context.StudentExam.Where(e => e.ExamId == id).ToListAsync();
+
+            var examModel = new ConfigVM
+            {
+                StudentExams = model,
+                ExamId = id
+            };
+
+            return View(examModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Upload(int examid, IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                TempData["Result"] = "Vui lòng tải file lên !!!";
+                return RedirectToAction("Config", new { id = examid });
+            }
+
+            var fileExtension = Path.GetExtension(file.FileName);
+            if (fileExtension.ToLower() != ".xlsx" && fileExtension.ToLower() != ".xls")
+            {
+                TempData["Result"] = "File tải lên không đúng định dạng, Vui lòng thử lại !!!";
+                return RedirectToAction("Config", new { id = examid });
+            }
+
+            // Xử lý file upload ở đây
+
+            return RedirectToAction("Config", new { id = examid });
+        }
+
+
     }
 }

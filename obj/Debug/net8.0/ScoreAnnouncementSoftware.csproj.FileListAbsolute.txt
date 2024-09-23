@@ -314,3 +314,4 @@ D:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware\obj\Debug\net8.0\refint\S
 D:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware\obj\Debug\net8.0\ScoreAnnouncementSoftware.pdb
 D:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware\obj\Debug\net8.0\ScoreAnnouncementSoftware.genruntimeconfig.cache
 D:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware\obj\Debug\net8.0\ref\ScoreAnnouncementSoftware.dll
+D:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware\obj\Debug\net8.0\ScoreAnnouncementSoftware.sourcelink.json

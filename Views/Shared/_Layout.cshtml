@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, 700-scale=1.0" />
     <title>@ViewData["Title"] - ScoreAnnouncementSoftware</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -14,13 +14,31 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Exam"
-                    asp-action="Index">ScoreAnnouncementSoftware</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Exam" asp-action="Index"><img
+                        src="~/Image/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex">
+                    <ul class="navbar-nav w-100 justify-content-start gap-5" style="margin-left: 10em;">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-weight: 700; font-size:1.15em;" asp-controller="#"
+                                asp-action="#">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-weight: 700; font-size:1.15em;" asp-controller="#"
+                                asp-action="#">Tra cứu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-weight: 700; font-size:1.15em;" asp-controller="#"
+                                asp-action="#">Xét chuyển đổi chuẩn đầu ra</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-weight: 700; font-size:1.15em;" asp-controller="#"
+                                asp-action="#">Yêu cầu cấp chứng chỉ</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -31,12 +49,12 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - ScoreAnnouncementSoftware - <a asp-area="" asp-controller="Home"
-                asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    @* <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2024 - ScoreAnnouncementSoftware - <a asp-area="" asp-controller="Home"
+    asp-action="Privacy">Privacy</a>
+    </div>
+    </footer> *@
 
     <!-- Thêm jQuery và Bootstrap JS -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -53,7 +71,7 @@
         $(document).ready(function () {
             var input = '@Html.Raw(TempData["Result"] ?? "")';
             if (input) {
-                $('#alertMessage').text(input).fadeIn().delay(2500).fadeOut();
+                $('#alertMessage').text(input).fadeIn().delay(2700).fadeOut();
             }
         });
     </script>

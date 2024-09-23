@@ -258,6 +258,9 @@ namespace ScoreAnnouncementSoftware.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ExamId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("IdentificationNumber")
                         .IsRequired()
                         .HasColumnType("TEXT");

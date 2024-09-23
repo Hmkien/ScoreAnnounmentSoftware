@@ -1,13 +1,7 @@
 @model ScoreAnnouncementSoftware.Models.ViewModels.ExamViewModel;
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
-
 <p>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#createModal">Create New</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#createModal">Tạo mới</button>
 </p>
 
 <table class="table">
@@ -40,8 +34,9 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ExamId">Sửa</a>
-                            <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.ExamId">Xóa</a>
-                            <a class="dropdown-item" asp-action="Upload" asp-route-id="@item.ExamId">Upload</a>
+                            <button class="dropdown-item" data-toggle="modal" data-target="#deleteModal"
+                                onclick="setExamId(@item.ExamId)">Xóa</button>
+                            <a class="dropdown-item" asp-action="Config" asp-route-id="@item.ExamId">Config</a>
                         </div>
                     </div>
                 </td>
@@ -49,14 +44,15 @@
         }
     </tbody>
 </table>
-<div id="alertMessage" class="alert alert-light text-center  " style="display: none;"></div>
+
+<div id="alertMessage" class="alert alert-light text-center" style="display: none;"></div>
 
 <div class="modal fade mt-3" id="createModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Tạo mới kỳ thi</h5>
-                <button type="button" class="close " style="border: none;background-color: #fff;font-size: 1.3em;"
+                <button type="button" class="close" style="border: none;background-color: #fff;font-size: 1.3em;"
                     data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -93,3 +89,35 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade mt-3" id="deleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận xóa</h5>
+                <button type="button" class="close" style="border: none; background-color: #fff; font-size: 1.3em;"
+                    data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa bản ghi này không?</p>
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" id="deleteExamId" name="id" />
+                    <div class="d-flex justify-content-end gap-3">
+                        <button type="submit" class="btn btn-danger mr-2">Xóa</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setExamId(examId) {
+        document.getElementById('deleteExamId').value = Number(examId);
+        console.log(examId);
+    }
+</script>
