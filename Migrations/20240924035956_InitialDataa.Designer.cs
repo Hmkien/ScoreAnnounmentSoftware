@@ -11,8 +11,8 @@ using ScoreAnnouncementSoftware.Data;
 namespace ScoreAnnouncementSoftware.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240923120711_InitialData")]
-    partial class InitialData
+    [Migration("20240924035956_InitialDataa")]
+    partial class InitialDataa
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,6 +74,9 @@ namespace ScoreAnnouncementSoftware.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ExamTypeId")
+                        .HasColumnType("TEXT");
+
                     b.Property<bool?>("IsDelete")
                         .HasColumnType("INTEGER");
 
@@ -85,7 +88,40 @@ namespace ScoreAnnouncementSoftware.Migrations
 
                     b.HasKey("ExamId");
 
+                    b.HasIndex("ExamTypeId");
+
                     b.ToTable("Exam");
+                });
+
+            modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.ExamType", b =>
+                {
+                    b.Property<string>("ExamTypeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ExamTypeName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ExamTypeId");
+
+                    b.ToTable("ExamType");
+
+                    b.HasData(
+                        new
+                        {
+                            ExamTypeId = "0",
+                            ExamTypeName = "Chuẩn đầu ra tiếng Anh"
+                        },
+                        new
+                        {
+                            ExamTypeId = "1",
+                            ExamTypeName = "Tiếng anh tăng cường"
+                        },
+                        new
+                        {
+                            ExamTypeId = "2",
+                            ExamTypeName = "Chuẩn đầu ra tin học cơ bản"
+                        });
                 });
 
             modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.ITStudent", b =>
@@ -287,6 +323,16 @@ namespace ScoreAnnouncementSoftware.Migrations
                     b.ToTable("StudentExam");
                 });
 
+            modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.Exam", b =>
+                {
+                    b.HasOne("ScoreAnnouncementSoftware.Models.Entities.ExamType", "ExamType")
+                        .WithMany("Exam")
+                        .HasForeignKey("ExamTypeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("ExamType");
+                });
+
             modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.ITStudent", b =>
                 {
                     b.HasOne("ScoreAnnouncementSoftware.Models.Entities.Student", "Student")
@@ -316,6 +362,11 @@ namespace ScoreAnnouncementSoftware.Migrations
                         .IsRequired();
 
                     b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.ExamType", b =>
+                {
+                    b.Navigation("Exam");
                 });
 #pragma warning restore 612, 618
         }

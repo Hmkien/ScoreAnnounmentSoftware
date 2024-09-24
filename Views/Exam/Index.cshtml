@@ -13,6 +13,7 @@
             <th>@Html.DisplayNameFor(model => model.Exams.First().CreatePerson)</th>
             <th>@Html.DisplayNameFor(model => model.Exams.First().Note)</th>
             <th>@Html.DisplayNameFor(model => model.Exams.First().Status)</th>
+            <th>@Html.DisplayNameFor(model => model.Exams.First().ExamType)</th>
             <th></th>
         </tr>
     </thead>
@@ -26,6 +27,7 @@
                 <td>@Html.DisplayFor(modelItem => item.CreatePerson)</td>
                 <td>@Html.DisplayFor(modelItem => item.Note)</td>
                 <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>@Html.DisplayFor(modelItem => item.ExamTypeId)</td>
                 <td>
                     <div class="dropdown">
                         <button class="btn btn-info dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"
@@ -74,6 +76,10 @@
                         <label asp-for="NewExam.CreatePerson" class="control-label"></label>
                         <input asp-for="NewExam.CreatePerson" class="form-control" />
                         <span asp-validation-for="NewExam.CreatePerson" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NewExam.ExamTypeId" class="control-label"></label>
+                        <select asp-for="NewExam.ExamTypeId" class="form-control" asp-items="ViewBag.ExamType"></select>
                     </div>
                     <div class="form-group">
                         <label asp-for="NewExam.Note" class="control-label"></label>

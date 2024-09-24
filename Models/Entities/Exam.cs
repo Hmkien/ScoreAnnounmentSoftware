@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ScoreAnnouncementSoftware.Models.Entities
 {
@@ -20,6 +21,11 @@ namespace ScoreAnnouncementSoftware.Models.Entities
         public bool? IsDelete { get; set; } = false;
         [Display(Name = "Trạng thái")]
         public string? Status { get; set; } = "Đang diễn ra";
+        [Display(Name = "Loại kì thi")]
+        public string? ExamTypeId { get; set; }
+        [ForeignKey("ExamTypeId")]
+        [Display(Name = "Loại kì thi")]
+        public ExamType? ExamType { get; set; }
 
     }
 }

@@ -7,51 +7,65 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ScoreAnnouncementSoftware.Data;
 using ScoreAnnouncementSoftware.Models.Entities;
-using ScoreAnnouncementSoftware.Models.Process;
-using ScoreAnnouncementSoftware.Models.ViewModels;
 
 namespace ScoreAnnouncementSoftware.Controllers
 {
-    public class ExamController : Controller
+    public class ConvertFormController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private ExcelProcess _excelProcess = new ExcelProcess();
 
-        public ExamController(ApplicationDbContext context)
+        public ConvertFormController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Exam
-        public IActionResult Index()
+        // GET: ConvertForm
+        public async Task<IActionResult> Index()
         {
-            var model = new ExamViewModel
-            {
-                Exams = _context.Exam.Where(e => e.IsDelete == false).ToList(),
-                NewExam = new Exam()
-            };
-            ViewData["ExamType"] = new SelectList(_context.ExamType, "ExamTypeId", "ExamTypeName");
-
-            return View(model);
+            return View(await _context.ConvertForms.ToListAsync());
         }
+
+        // GET: ConvertForm/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var convertForm = await _context.ConvertForms
+                .FirstOrDefaultAsync(m => m.ConvertFormId == id);
+            if (convertForm == null)
+            {
+                return NotFound();
+            }
+
+            return View(convertForm);
+        }
+
+        // GET: ConvertForm/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: ConvertForm/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Exam newExam)
+        public async Task<IActionResult> Create([Bind("ConvertFormId,StudentCode,CertificateType,CertificateName,SendDate,fileDocx,Note")] ConvertForm convertForm)
         {
             if (ModelState.IsValid)
             {
-                newExam.CreateDate = DateTime.Now;
-                _context.Add(newExam);
+                _context.Add(convertForm);
                 await _context.SaveChangesAsync();
-                TempData["Result"] = "Thêm mới thành công!";
                 return RedirectToAction(nameof(Index));
             }
-            TempData["Result"] = "Thêm mới thất bại, vui lòng điền thông tin hợp lệ!";
-            return RedirectToAction(nameof(Index));
+            return View(convertForm);
         }
 
-
-        // GET: Exam/Edit/5
+        // GET: ConvertForm/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -59,23 +73,22 @@ namespace ScoreAnnouncementSoftware.Controllers
                 return NotFound();
             }
 
-            var exam = await _context.Exam.FindAsync(id);
-            if (exam == null)
+            var convertForm = await _context.ConvertForms.FindAsync(id);
+            if (convertForm == null)
             {
                 return NotFound();
             }
-            ViewData["ExamType"] = new SelectList(_context.ExamType, "ExamTypeId", "ExamTypeName", exam.ExamTypeId);
-            return View(exam);
+            return View(convertForm);
         }
 
-        // POST: Exam/Edit/5
+        // POST: ConvertForm/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ExamId,ExamCode,ExamName,CreateDate,CreatePerson,ExamTypeId,Note,IsDelete,Status")] Exam exam)
+        public async Task<IActionResult> Edit(int id, [Bind("ConvertFormId,StudentCode,CertificateType,CertificateName,SendDate,fileDocx,Note")] ConvertForm convertForm)
         {
-            if (id != exam.ExamId)
+            if (id != convertForm.ConvertFormId)
             {
                 return NotFound();
             }
@@ -84,14 +97,12 @@ namespace ScoreAnnouncementSoftware.Controllers
             {
                 try
                 {
-                    _context.Update(exam);
+                    _context.Update(convertForm);
                     await _context.SaveChangesAsync();
-                    TempData["Result"] = "Đã thay đổi thành công!!";
-
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ExamExists(exam.ExamId))
+                    if (!ConvertFormExists(convertForm.ConvertFormId))
                     {
                         return NotFound();
                     }
@@ -102,12 +113,10 @@ namespace ScoreAnnouncementSoftware.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-
-            TempData["Result"] = "Thất bại!!!";
-            return View(exam);
+            return View(convertForm);
         }
 
-        // GET: Exam/Delete/5
+        // GET: ConvertForm/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -115,50 +124,34 @@ namespace ScoreAnnouncementSoftware.Controllers
                 return NotFound();
             }
 
-            var exam = await _context.Exam
-                .FirstOrDefaultAsync(m => m.ExamId == id);
-            if (exam == null)
+            var convertForm = await _context.ConvertForms
+                .FirstOrDefaultAsync(m => m.ConvertFormId == id);
+            if (convertForm == null)
             {
                 return NotFound();
             }
 
-            return View(exam);
+            return View(convertForm);
         }
 
-        // POST: Exam/Delete/5
+        // POST: ConvertForm/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var exam = await _context.Exam.FindAsync(id);
-            if (exam != null)
+            var convertForm = await _context.ConvertForms.FindAsync(id);
+            if (convertForm != null)
             {
-                exam.IsDelete = true;
-                TempData["Result"] = "Đã xóa thành công!!";
+                _context.ConvertForms.Remove(convertForm);
             }
-            else
-            {
-                TempData["Result"] = "Không tìm thấy bản ghi cần xóa,Vui lòng thử lại!!";
-            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ExamExists(int id)
+        private bool ConvertFormExists(int id)
         {
-            return _context.Exam.Any(e => e.ExamId == id);
-        }
-        public async Task<IActionResult> Config(int id)
-        {
-            var model = await _context.StudentExam.Where(e => e.ExamId == id).ToListAsync();
-
-            var examModel = new ConfigVM
-            {
-                StudentExams = model,
-                ExamId = id
-            };
-
-            return View(examModel);
+            return _context.ConvertForms.Any(e => e.ConvertFormId == id);
         }
         [HttpPost]
         public async Task<IActionResult> Upload(int examid, IFormFile file)
@@ -166,14 +159,14 @@ namespace ScoreAnnouncementSoftware.Controllers
             if (file == null || file.Length == 0)
             {
                 TempData["Result"] = "Vui lòng tải file lên !!!";
-                return RedirectToAction("Config", new { id = examid });
+                return RedirectToAction("Index");
             }
 
             var fileExtension = Path.GetExtension(file.FileName);
             if (fileExtension.ToLower() != ".xlsx" && fileExtension.ToLower() != ".xls")
             {
                 TempData["Result"] = "File tải lên không đúng định dạng, Vui lòng thử lại !!!";
-                return RedirectToAction("Config", new { id = examid });
+                return RedirectToAction("Index");
             }
 
             var fileName = file.FileName;
@@ -185,9 +178,8 @@ namespace ScoreAnnouncementSoftware.Controllers
                 TempData["Result"] = "Upload kết quả kì thi thành công,Vui lòng kiểm tra kết quả";
             }
 
-            return RedirectToAction("Config", new { id = examid });
+            return RedirectToAction("Index");
         }
-
 
     }
 }

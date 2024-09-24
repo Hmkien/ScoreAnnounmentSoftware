@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace ScoreAnnouncementSoftware.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialData : Migration
+    public partial class InitialDataa : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,22 +32,15 @@ namespace ScoreAnnouncementSoftware.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Exam",
+                name: "ExamType",
                 columns: table => new
                 {
-                    ExamId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ExamCode = table.Column<string>(type: "TEXT", nullable: false),
-                    ExamName = table.Column<string>(type: "TEXT", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreatePerson = table.Column<string>(type: "TEXT", nullable: false),
-                    Note = table.Column<string>(type: "TEXT", nullable: true),
-                    IsDelete = table.Column<bool>(type: "INTEGER", nullable: true),
-                    Status = table.Column<string>(type: "TEXT", nullable: true)
+                    ExamTypeId = table.Column<string>(type: "TEXT", nullable: false),
+                    ExamTypeName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Exam", x => x.ExamId);
+                    table.PrimaryKey("PK_ExamType", x => x.ExamTypeId);
                 });
 
             migrationBuilder.CreateTable(
@@ -103,6 +98,32 @@ namespace ScoreAnnouncementSoftware.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Student", x => x.StudentCode);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Exam",
+                columns: table => new
+                {
+                    ExamId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ExamCode = table.Column<string>(type: "TEXT", nullable: false),
+                    ExamName = table.Column<string>(type: "TEXT", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CreatePerson = table.Column<string>(type: "TEXT", nullable: false),
+                    Note = table.Column<string>(type: "TEXT", nullable: true),
+                    IsDelete = table.Column<bool>(type: "INTEGER", nullable: true),
+                    Status = table.Column<string>(type: "TEXT", nullable: true),
+                    ExamTypeId = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exam", x => x.ExamId);
+                    table.ForeignKey(
+                        name: "FK_Exam_ExamType_ExamTypeId",
+                        column: x => x.ExamTypeId,
+                        principalTable: "ExamType",
+                        principalColumn: "ExamTypeId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -169,6 +190,21 @@ namespace ScoreAnnouncementSoftware.Migrations
                         principalColumn: "StudentExamId");
                 });
 
+            migrationBuilder.InsertData(
+                table: "ExamType",
+                columns: new[] { "ExamTypeId", "ExamTypeName" },
+                values: new object[,]
+                {
+                    { "0", "Chuẩn đầu ra tiếng Anh" },
+                    { "1", "Tiếng anh tăng cường" },
+                    { "2", "Chuẩn đầu ra tin học cơ bản" }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Exam_ExamTypeId",
+                table: "Exam",
+                column: "ExamTypeId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_ITStudent_StudentCode",
                 table: "ITStudent",
@@ -205,6 +241,9 @@ namespace ScoreAnnouncementSoftware.Migrations
 
             migrationBuilder.DropTable(
                 name: "ScoreIT");
+
+            migrationBuilder.DropTable(
+                name: "ExamType");
 
             migrationBuilder.DropTable(
                 name: "StudentExam");
