@@ -1,10 +1,12 @@
 @model ScoreAnnouncementSoftware.Models.ViewModels.ExamViewModel;
-
+@{
+    Layout = "_layoutAdmin";
+}
 <p>
     <button class="btn btn-primary" data-toggle="modal" data-target="#createModal">Tạo mới</button>
 </p>
 
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.Exams.First().ExamCode)</th>
@@ -27,7 +29,7 @@
                 <td>@Html.DisplayFor(modelItem => item.CreatePerson)</td>
                 <td>@Html.DisplayFor(modelItem => item.Note)</td>
                 <td>@Html.DisplayFor(modelItem => item.Status)</td>
-                <td>@Html.DisplayFor(modelItem => item.ExamTypeId)</td>
+                <td>@Html.DisplayFor(modelItem => item.ExamType.ExamTypeName)</td>
                 <td>
                     <div class="dropdown">
                         <button class="btn btn-info dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"
@@ -64,12 +66,12 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="NewExam.ExamCode" class="control-label"></label>
-                        <input asp-for="NewExam.ExamCode" class="form-control" />
+                        <input asp-for="NewExam.ExamCode" class="form-control" required />
                         <span asp-validation-for="NewExam.ExamCode" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="NewExam.ExamName" class="control-label"></label>
-                        <input asp-for="NewExam.ExamName" class="form-control" />
+                        <input asp-for="NewExam.ExamName" class="form-control" required />
                         <span asp-validation-for="NewExam.ExamName" class="text-danger"></span>
                     </div>
                     <div class="form-group">

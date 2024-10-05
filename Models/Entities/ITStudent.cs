@@ -7,14 +7,29 @@ namespace ScoreAnnouncementSoftware.Models.Entities
     public class ITStudent
     {
         [Key]
-        public Guid ITStudentId { get; set; }
+        [Display(Name = "Số CMND/CCCD")]
+        public string IdentityNumber { get; set; }
 
-        [Display(Name = "Student Code")]
-        public string StudentCode { get; set; }
-        public string IdentificationCode { get; set; }
-        [ForeignKey("StudentCode")]
-        public Student? Student { get; set; }
-        public string Note { get; set; }
+        [Display(Name = "Họ ")]
+        public string LastName { get; set; }
+        [Display(Name = "Tên")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Ngày sinh")]
+        public string? BirthDay { get; set; }
+        [Display(Name = "Giới tính ")]
+        public string? Gender { get; set; }
+        [Display(Name = "Nơi sinh ")]
+        public string? Address { get; set; }
+        public string? Email { get; set; }
+        [Display(Name = "Dân tộc")]
+        public string? national { get; set; }
+        [Display(Name = "Số báo danh")]
+        public string? IdentificationCode { get; set; }
+        [Display(Name = "Ghi chú")]
+        public string? Note { get; set; }
+        [ForeignKey("ExamId")]
+        public int ExamId { get; set; }
 
     }
 }

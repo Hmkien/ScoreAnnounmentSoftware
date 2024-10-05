@@ -47,3 +47,10 @@ function dragOverHandler(event) {
 function dragLeaveHandler(event) {
   $(".image-upload-wrap").removeClass("image-dropping");
 }
+imgInp.onchange = (evt) => {
+  const [file] = imgInp.files;
+  if (file) {
+    blah.src = URL.createObjectURL(file);
+    $("#blah").css("display", "block");
+  }
+};

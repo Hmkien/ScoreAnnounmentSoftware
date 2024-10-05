@@ -20,9 +20,9 @@ namespace ScoreAnnouncementSoftware.Controllers
         }
 
         // GET: ConvertForm
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.ConvertForms.ToListAsync());
+            return View();
         }
 
         // GET: ConvertForm/Details/5
@@ -179,6 +179,10 @@ namespace ScoreAnnouncementSoftware.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+        public IActionResult IndexAdmin()
+        {
+            return View();
         }
 
     }

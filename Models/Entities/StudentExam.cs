@@ -8,21 +8,18 @@ namespace ScoreAnnouncementSoftware.Models.Entities
     {
         [Key]
         public Guid StudentExamId { get; set; }
-
-        [Required]
-        [Display(Name = "Số báo danh")]
-        public string IdentificationNumber { get; set; }
-
-        [Required]
         public bool? IsActive { get; set; } = true;
 
         [Display(Name = "Ghi chú")]
-        public string Note { get; set; }
+        public string? Note { get; set; }
         [ForeignKey("ExamId")]
         public int ExamId { get; set; }
 
         [ForeignKey("Student")]
-        public string StudentCode { get; set; }
+        public string? StudentCode { get; set; }
         public Student? Student { get; set; }
+        [ForeignKey("IdentityNumber")]
+        public string IdentityNumber { get; set; }
+        public ITStudent? ITStudent { get; set; }
     }
 }

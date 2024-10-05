@@ -9,6 +9,22 @@
       "PackagePath": "staticwebassets\\Image\\logo.png"
     },
     {
+      "Id": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\Upload\\Excels\\CC_UD_CNTT_CB.xlsx",
+      "PackagePath": "staticwebassets\\Upload\\Excels\\CC_UD_CNTT_CB.xlsx"
+    },
+    {
+      "Id": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\Upload\\Excels\\CDR_CNTT.xlsx",
+      "PackagePath": "staticwebassets\\Upload\\Excels\\CDR_CNTT.xlsx"
+    },
+    {
+      "Id": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\Upload\\Excels\\CDR_NN.xlsx",
+      "PackagePath": "staticwebassets\\Upload\\Excels\\CDR_NN.xlsx"
+    },
+    {
+      "Id": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\Upload\\Excels\\KiemTra_TrinhDo_NN.xlsx",
+      "PackagePath": "staticwebassets\\Upload\\Excels\\KiemTra_TrinhDo_NN.xlsx"
+    },
+    {
       "Id": "D:\\ScoreAnnouncementSoftWare\\ScoreAnnouncementSoftware\\wwwroot\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-grid.css"
     },

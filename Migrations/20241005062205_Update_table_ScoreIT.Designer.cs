@@ -11,8 +11,8 @@ using ScoreAnnouncementSoftware.Data;
 namespace ScoreAnnouncementSoftware.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240924035956_InitialDataa")]
-    partial class InitialDataa
+    [Migration("20241005062205_Update_table_ScoreIT")]
+    partial class Update_table_ScoreIT
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,10 +34,33 @@ namespace ScoreAnnouncementSoftware.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Note")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("SendDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Status")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("StudentCode")
@@ -105,46 +128,46 @@ namespace ScoreAnnouncementSoftware.Migrations
                     b.HasKey("ExamTypeId");
 
                     b.ToTable("ExamType");
-
-                    b.HasData(
-                        new
-                        {
-                            ExamTypeId = "0",
-                            ExamTypeName = "Chuẩn đầu ra tiếng Anh"
-                        },
-                        new
-                        {
-                            ExamTypeId = "1",
-                            ExamTypeName = "Tiếng anh tăng cường"
-                        },
-                        new
-                        {
-                            ExamTypeId = "2",
-                            ExamTypeName = "Chuẩn đầu ra tin học cơ bản"
-                        });
                 });
 
             modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.ITStudent", b =>
                 {
-                    b.Property<Guid>("ITStudentId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("IdentityNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("BirthDay")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ExamId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Gender")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("IdentificationCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Note")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("StudentCode")
-                        .IsRequired()
+                    b.Property<string>("national")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ITStudentId");
-
-                    b.HasIndex("StudentCode");
+                    b.HasKey("IdentityNumber");
 
                     b.ToTable("ITStudent");
                 });
@@ -185,26 +208,32 @@ namespace ScoreAnnouncementSoftware.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ExamCode")
+                    b.Property<int>("ExamId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ListeningScore")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Note")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ReadingScore")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Result")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SpeakingScore")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("StudentCode")
+                    b.Property<string>("StudentCode")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TotalScore")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("WritingScore")
@@ -222,14 +251,26 @@ namespace ScoreAnnouncementSoftware.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ExamCode")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("ExcelScore")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IdentityNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PowerPointScore")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PracticalScore")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("StudentCode")
+                    b.Property<string>("Result")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StudentCode")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TheoryScore")
@@ -237,8 +278,13 @@ namespace ScoreAnnouncementSoftware.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TotalScore")
-                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<string>("WordScore")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("examId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ScoreITCode");
 
@@ -250,19 +296,13 @@ namespace ScoreAnnouncementSoftware.Migrations
                     b.Property<string>("StudentCode")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Birthday")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Course")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Faculty")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
@@ -279,11 +319,13 @@ namespace ScoreAnnouncementSoftware.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Note")
+                    b.Property<int?>("Note")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Status")
                         .HasColumnType("TEXT");
 
                     b.HasKey("StudentCode");
@@ -300,23 +342,25 @@ namespace ScoreAnnouncementSoftware.Migrations
                     b.Property<int>("ExamId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("IdentificationNumber")
+                    b.Property<string>("ITStudentIdentityNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IdentityNumber")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool?>("IsActive")
-                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Note")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("StudentCode")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("StudentExamId");
+
+                    b.HasIndex("ITStudentIdentityNumber");
 
                     b.HasIndex("StudentCode");
 
@@ -333,17 +377,6 @@ namespace ScoreAnnouncementSoftware.Migrations
                     b.Navigation("ExamType");
                 });
 
-            modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.ITStudent", b =>
-                {
-                    b.HasOne("ScoreAnnouncementSoftware.Models.Entities.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Student");
-                });
-
             modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.RequireForm", b =>
                 {
                     b.HasOne("ScoreAnnouncementSoftware.Models.Entities.StudentExam", "StudentExam")
@@ -355,11 +388,15 @@ namespace ScoreAnnouncementSoftware.Migrations
 
             modelBuilder.Entity("ScoreAnnouncementSoftware.Models.Entities.StudentExam", b =>
                 {
+                    b.HasOne("ScoreAnnouncementSoftware.Models.Entities.ITStudent", "ITStudent")
+                        .WithMany()
+                        .HasForeignKey("ITStudentIdentityNumber");
+
                     b.HasOne("ScoreAnnouncementSoftware.Models.Entities.Student", "Student")
                         .WithMany()
-                        .HasForeignKey("StudentCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StudentCode");
+
+                    b.Navigation("ITStudent");
 
                     b.Navigation("Student");
                 });

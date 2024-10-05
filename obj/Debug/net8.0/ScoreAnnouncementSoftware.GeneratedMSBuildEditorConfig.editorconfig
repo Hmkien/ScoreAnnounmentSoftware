@@ -17,95 +17,91 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ScoreAnnouncementSoftware
 build_property.RootNamespace = ScoreAnnouncementSoftware
-build_property.ProjectDir = d:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware\
+build_property.ProjectDir = D:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware
+build_property.MSBuildProjectDirectory = D:\ScoreAnnouncementSoftWare\ScoreAnnouncementSoftware
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/ConvertForm/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udmVydEZvcm1cQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/ConvertForm/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udmVydEZvcm1cRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/ConvertForm/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udmVydEZvcm1cRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/ConvertForm/Index.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/ConvertForm/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udmVydEZvcm1cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Exam/Config.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/ConvertForm/IndexAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udmVydEZvcm1cSW5kZXhBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Exam/Config.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVxDb25maWcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Exam/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Exam/Edit.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Exam/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Exam/Index.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Exam/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/LookingUp/EnglishIn.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/LookingUp/EnglishIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9va2luZ1VwXEVuZ2xpc2hJbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/LookingUp/EnglishOut.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/LookingUp/EnglishOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9va2luZ1VwXEVuZ2xpc2hPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/LookingUp/Index.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/LookingUp/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9va2luZ1VwXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/LookingUp/InfomaticOut.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/LookingUp/InfomaticOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9va2luZ1VwXEluZm9tYXRpY091dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/RequireForm/Create.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/RequireForm/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWlyZUZvcm1cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/RequireForm/Delete.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/RequireForm/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWlyZUZvcm1cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/RequireForm/Edit.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/RequireForm/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWlyZUZvcm1cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/RequireForm/Index.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/RequireForm/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWlyZUZvcm1cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Shared/Error.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/_ViewImports.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/WhoareYou/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2hvYXJlWW91XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/_ViewStart.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Shared/_Layout.cshtml]
+[D:/ScoreAnnouncementSoftWare/ScoreAnnouncementSoftware/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-qrog0lfbyz

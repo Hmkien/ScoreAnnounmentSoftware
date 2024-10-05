@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace ScoreAnnouncementSoftware.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDataa : Migration
+    public partial class InitialData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,11 +18,17 @@ namespace ScoreAnnouncementSoftware.Migrations
                     ConvertFormId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     StudentCode = table.Column<string>(type: "TEXT", nullable: false),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
                     CertificateType = table.Column<string>(type: "TEXT", nullable: false),
                     CertificateName = table.Column<string>(type: "TEXT", nullable: false),
                     SendDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Image = table.Column<string>(type: "TEXT", nullable: false),
                     fileDocx = table.Column<string>(type: "TEXT", nullable: false),
-                    Note = table.Column<string>(type: "TEXT", nullable: true)
+                    Note = table.Column<string>(type: "TEXT", nullable: true),
+                    Status = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -44,18 +48,41 @@ namespace ScoreAnnouncementSoftware.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ITStudent",
+                columns: table => new
+                {
+                    IdentityNumber = table.Column<string>(type: "TEXT", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: false),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
+                    BirthDay = table.Column<string>(type: "TEXT", nullable: true),
+                    Gender = table.Column<string>(type: "TEXT", nullable: true),
+                    Address = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    national = table.Column<string>(type: "TEXT", nullable: true),
+                    IdentificationCode = table.Column<string>(type: "TEXT", nullable: true),
+                    Note = table.Column<string>(type: "TEXT", nullable: true),
+                    ExamId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ITStudent", x => x.IdentityNumber);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ScoreFL",
                 columns: table => new
                 {
                     ScoreFLCode = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ExamCode = table.Column<int>(type: "INTEGER", nullable: false),
-                    StudentCode = table.Column<Guid>(type: "TEXT", nullable: false),
+                    ExamId = table.Column<int>(type: "INTEGER", nullable: false),
+                    StudentCode = table.Column<string>(type: "TEXT", nullable: false),
                     SpeakingScore = table.Column<string>(type: "TEXT", nullable: false),
                     ReadingScore = table.Column<string>(type: "TEXT", nullable: false),
                     WritingScore = table.Column<string>(type: "TEXT", nullable: false),
                     ListeningScore = table.Column<string>(type: "TEXT", nullable: false),
-                    TotalScore = table.Column<string>(type: "TEXT", nullable: false)
+                    TotalScore = table.Column<string>(type: "TEXT", nullable: true),
+                    Result = table.Column<string>(type: "TEXT", nullable: true),
+                    Note = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,11 +95,17 @@ namespace ScoreAnnouncementSoftware.Migrations
                 {
                     ScoreITCode = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    StudentCode = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ExamCode = table.Column<int>(type: "INTEGER", nullable: false),
+                    StudentCode = table.Column<string>(type: "TEXT", nullable: true),
+                    IdentificationCode = table.Column<string>(type: "TEXT", nullable: true),
+                    examId = table.Column<int>(type: "INTEGER", nullable: false),
                     PracticalScore = table.Column<string>(type: "TEXT", nullable: false),
+                    WordScore = table.Column<string>(type: "TEXT", nullable: true),
+                    ExcelScore = table.Column<string>(type: "TEXT", nullable: true),
+                    PowerPointScore = table.Column<string>(type: "TEXT", nullable: true),
                     TheoryScore = table.Column<string>(type: "TEXT", nullable: false),
-                    TotalScore = table.Column<string>(type: "TEXT", nullable: false)
+                    TotalScore = table.Column<string>(type: "TEXT", nullable: true),
+                    Result = table.Column<string>(type: "TEXT", nullable: true),
+                    Note = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -86,14 +119,14 @@ namespace ScoreAnnouncementSoftware.Migrations
                     StudentCode = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     FirstName = table.Column<string>(type: "TEXT", nullable: false),
-                    Birthday = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: false),
-                    Note = table.Column<int>(type: "INTEGER", nullable: false),
-                    Course = table.Column<string>(type: "TEXT", nullable: false),
-                    Faculty = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    Note = table.Column<int>(type: "INTEGER", nullable: true),
+                    Course = table.Column<string>(type: "TEXT", nullable: true),
+                    Faculty = table.Column<string>(type: "TEXT", nullable: true),
                     IsActive = table.Column<bool>(type: "INTEGER", nullable: true),
-                    IsDelete = table.Column<bool>(type: "INTEGER", nullable: true)
+                    IsDelete = table.Column<bool>(type: "INTEGER", nullable: true),
+                    Status = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -127,45 +160,30 @@ namespace ScoreAnnouncementSoftware.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ITStudent",
-                columns: table => new
-                {
-                    ITStudentId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    StudentCode = table.Column<string>(type: "TEXT", nullable: false),
-                    IdentificationCode = table.Column<string>(type: "TEXT", nullable: false),
-                    Note = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ITStudent", x => x.ITStudentId);
-                    table.ForeignKey(
-                        name: "FK_ITStudent_Student_StudentCode",
-                        column: x => x.StudentCode,
-                        principalTable: "Student",
-                        principalColumn: "StudentCode",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "StudentExam",
                 columns: table => new
                 {
                     StudentExamId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    IdentificationNumber = table.Column<string>(type: "TEXT", nullable: false),
-                    IsActive = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Note = table.Column<string>(type: "TEXT", nullable: false),
+                    IsActive = table.Column<bool>(type: "INTEGER", nullable: true),
+                    Note = table.Column<string>(type: "TEXT", nullable: true),
                     ExamId = table.Column<int>(type: "INTEGER", nullable: false),
-                    StudentCode = table.Column<string>(type: "TEXT", nullable: false)
+                    StudentCode = table.Column<string>(type: "TEXT", nullable: true),
+                    IdentityNumber = table.Column<string>(type: "TEXT", nullable: false),
+                    ITStudentIdentityNumber = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StudentExam", x => x.StudentExamId);
                     table.ForeignKey(
+                        name: "FK_StudentExam_ITStudent_ITStudentIdentityNumber",
+                        column: x => x.ITStudentIdentityNumber,
+                        principalTable: "ITStudent",
+                        principalColumn: "IdentityNumber");
+                    table.ForeignKey(
                         name: "FK_StudentExam_Student_StudentCode",
                         column: x => x.StudentCode,
                         principalTable: "Student",
-                        principalColumn: "StudentCode",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "StudentCode");
                 });
 
             migrationBuilder.CreateTable(
@@ -190,30 +208,20 @@ namespace ScoreAnnouncementSoftware.Migrations
                         principalColumn: "StudentExamId");
                 });
 
-            migrationBuilder.InsertData(
-                table: "ExamType",
-                columns: new[] { "ExamTypeId", "ExamTypeName" },
-                values: new object[,]
-                {
-                    { "0", "Chuẩn đầu ra tiếng Anh" },
-                    { "1", "Tiếng anh tăng cường" },
-                    { "2", "Chuẩn đầu ra tin học cơ bản" }
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Exam_ExamTypeId",
                 table: "Exam",
                 column: "ExamTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ITStudent_StudentCode",
-                table: "ITStudent",
-                column: "StudentCode");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_RequireForms_StudentCode",
                 table: "RequireForms",
                 column: "StudentCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudentExam_ITStudentIdentityNumber",
+                table: "StudentExam",
+                column: "ITStudentIdentityNumber");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StudentExam_StudentCode",
@@ -231,9 +239,6 @@ namespace ScoreAnnouncementSoftware.Migrations
                 name: "Exam");
 
             migrationBuilder.DropTable(
-                name: "ITStudent");
-
-            migrationBuilder.DropTable(
                 name: "RequireForms");
 
             migrationBuilder.DropTable(
@@ -247,6 +252,9 @@ namespace ScoreAnnouncementSoftware.Migrations
 
             migrationBuilder.DropTable(
                 name: "StudentExam");
+
+            migrationBuilder.DropTable(
+                name: "ITStudent");
 
             migrationBuilder.DropTable(
                 name: "Student");

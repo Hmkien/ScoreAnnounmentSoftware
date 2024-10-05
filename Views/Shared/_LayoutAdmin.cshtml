@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,9 +13,9 @@
 
 <body>
     <header>
-        <nav class="navbar  navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="LookingUp" asp-action="Index"><img
+                <a class="navbar-brand" asp-area="" asp-controller="Exam" asp-action="Index"><img
                         src="~/Image/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,19 +25,15 @@
                     <ul class="navbar-nav w-100 justify-content-start gap-5" style="margin-left: 10em;">
                         <li class="nav-item">
                             <a class="nav-link text-dark" style="font-weight: 700; font-size:1.15em;"
-                                asp-controller="LookingUp" asp-action="Index">Trang chủ</a>
+                                asp-controller="Exam" asp-action="Index">Trang chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" style="font-weight: 700; font-size:1.15em;"
-                                asp-controller="LookingUp" asp-action="Index">Tin tức</a>
+                                asp-controller="ConvertForm" asp-action="IndexAdmin">Xét chuyển đổi chuẩn đầu ra</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" style="font-weight: 700; font-size:1.15em;"
-                                asp-controller="ConvertForm" asp-action="Index">Xét chuyển đổi chuẩn đầu ra</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" style="font-weight: 700; font-size:1.15em;"
-                                asp-controller="RequireForm" asp-action="Index">Đăng kí chứng nhận</a>
+                                asp-controller="RequireForm" asp-action="Index">Yêu cầu cấp chứng chỉ</a>
                         </li>
                     </ul>
                 </div>
@@ -67,15 +63,7 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 
-    <!-- Phần thông báo -->
-    <script>
-        $(document).ready(function () {
-            var input = '@Html.Raw(TempData["Result"] ?? "")';
-            if (input) {
-                $('#alertMessage').text(input).fadeIn().delay(2700).fadeOut();
-            }
-        });
-    </script>
+
 </body>
 
 </html>
